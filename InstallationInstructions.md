@@ -107,7 +107,7 @@ your operating system below. You have to install R before you install RStudio.
 * Once it's installed, open RStudio to make sure it works and you don't get any
   error messages.
 
-##### MacOS
+### MacOS
 
 * Download R from
   the [CRAN website](https://cran.r-project.org/bin/macosx/).
@@ -122,7 +122,7 @@ your operating system below. You have to install R before you install RStudio.
 * Once it's installed, open RStudio to make sure it works and you don't get any
   error messages.
 
-#### Linux
+### Linux
 
 * Follow the instructions for your distribution
   from [CRAN](https://cloud.r-project.org/bin/linux), they provide information
