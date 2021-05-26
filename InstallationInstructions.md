@@ -66,7 +66,7 @@ If you run into any difficulties, please request help before the workshop begins
         press enter to prepend Anaconda to your `PATH` (this makes the Anaconda
         distribution the default Python).
 
-## Starting Python
+### Starting Python
 
 We will teach Python using [Jupiter Notebook][jupyter]. If you installed Python using Anaconda, **Jupyter Notebook** should already be on your system. If
 you did not use Anaconda, use the Python package manager pip
@@ -83,7 +83,7 @@ To start Jupyter Notebook Open the Anaconda Navigator and Launch Jupyter Noteboo
 [video-windows]: https://www.youtube.com/watch?v=xxQ0mzZ8UvA
 
 
-### Install R and RStudio
+## Install R and RStudio
 
 R and RStudio are two separate pieces of software: 
 
@@ -95,7 +95,7 @@ R and RStudio are two separate pieces of software:
 If you don't already have R and RStudio installed, follow the instructions for 
 your operating system below. You have to install R before you install RStudio. 
 
-#### Windows
+### Windows
 
 * Download R from the 
   [CRAN website](https://cran.r-project.org/bin/windows/base/release.htm).
@@ -122,7 +122,7 @@ your operating system below. You have to install R before you install RStudio.
 * Once it's installed, open RStudio to make sure it works and you don't get any
   error messages.
 
-##### Linux
+#### Linux
 
 * Follow the instructions for your distribution
   from [CRAN](https://cloud.r-project.org/bin/linux), they provide information
