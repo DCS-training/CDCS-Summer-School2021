@@ -7,6 +7,8 @@ In this workshop, we are going to use the following packages, please run the fol
 ```
 install.packages("igraph")
 install.packages("ggnetwork")
+install.packages("visNetwork")
+install.pacakges("tidyverse")
 ```
 
 ## Course Materials
