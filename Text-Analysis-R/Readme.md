@@ -8,8 +8,9 @@ In this workshop, we will cover the basic assumptions behind computational text 
     * Tokenization 
     * Stop-words 
 * Text visualization and analysis
-    * Word clouds, Word frequency
-    * Word clouds, TF-IDF
+    * Word frequency
+    * TF-IDF
+    * Word clouds
 * Sentiment analysis (if time allows)
 
 
