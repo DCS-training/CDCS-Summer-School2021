@@ -2,6 +2,15 @@
 
 In this workshop, we will cover the basic theory behind network analysis. In the practice section, we will show the main ways to read network data using R, basic exploration and visualisation of a network, and how to calculate several network metrics, including degree centrality, betweenness centrality, and pagerank. If time allowed, we will also cover community detection, a useful way to classify network nodes into different groups (known as community).
 
+## Topics
+* Introduction to network theory
+* Centrality measurements
+    * Degree, closeness, betweeness centrality
+    * PageRank
+* Visualization of network
+* Community detection
+
+
 ## Installation
 In this workshop, we are going to use the following packages, please run the following codes in your R console if you have not installed before:
 ```
