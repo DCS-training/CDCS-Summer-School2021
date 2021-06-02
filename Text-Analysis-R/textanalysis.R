@@ -1,7 +1,7 @@
 # ---
 # title: "Basic Text Analysis Using R (workshop material)"
 # author: "Justin Ho"
-# last updated: "27/05/2021"
+# last updated: "02/06/2021"
 # ---
 
 
@@ -9,12 +9,16 @@
 
 # Installing the packages
 install.packages("quanteda")
+install.packages("quanteda.textplots")
+install.packages("quanteda.textstats")
 install.packages("dplyr")
 install.packages("wordcloud")
 install.packages("ggplot2")
 
 # Loading the necessary packages
 library(quanteda)
+library(quanteda.textplots)
+library(quanteda.textstats)
 library(ggplot2)
 library(dplyr)
 
@@ -39,13 +43,13 @@ customstopwords <- c("s", "http", "stopword")
 
 # Creating DFM
 tokens_snp <- tokens(corpus_snp, remove_punct = TRUE, remove_numbers = TRUE, verbose = TRUE, remove_url = TRUE)
-dfm_snp <- dfm(tokens_snp, stem = FALSE)
+dfm_snp <- dfm(tokens_snp)
 
 # Inspecting the results
 topfeatures(dfm_snp, 30) 
 
 # What is it with "make"?
-?kwic(corpus_snp, "make", 3)
+kwic(tokens_snp, "make", 3)
 
 # Plotting a histogram
 library(ggplot2)
@@ -58,7 +62,7 @@ data.frame(list(term = names(scotfeatures), frequency = unname(scotfeatures))) %
   theme(axis.text.x=element_text(angle=90, hjust=1))
 
 # Doing it again, removing stop words this time!
-dfm_snp <- dfm(tokens_snp, remove = c(stopwords('english'), customstopwords), stem = FALSE)
+dfm_snp <- dfm_remove(dfm_snp, c(stopwords('english'), customstopwords))
 
 # Inspecting the results again
 topfeatures(dfm_snp, 30) 
@@ -76,8 +80,9 @@ data.frame(list(term = names(scotfeatures), frequency = unname(scotfeatures))) %
 textplot_wordcloud(dfm_snp)
 
 # TFIDF
-dfm_snp %>% dfm_tfidf() %>% topfeatures(30)
-dfm_snp %>% dfm_tfidf() %>% textplot_wordcloud()
+dfm_snp_tfidf <- dfm_tfidf(dfm_snp)
+topfeatures(dfm_snp_tfidf, 30)
+textplot_wordcloud(dfm_snp_tfidf)
 
 # =================================== Comparison Across Groups =======================================
 
@@ -85,15 +90,17 @@ dfm_snp %>% dfm_tfidf() %>% textplot_wordcloud()
 df_all <-  read.csv("scotelection2021.csv", stringsAsFactors = FALSE)
 corpus_all <- corpus(df_all, text_field = "text")
 tokens_all <- tokens(corpus_all, remove_punct = TRUE, remove_numbers = TRUE, verbose = TRUE, remove_url = TRUE)
-dfm_all <- dfm(tokens_all, remove = c(stopwords('english'), customstopwords), stem = FALSE)
+dfm_all <- dfm(tokens_all)
+dfm_all <- dfm_remove(dfm_all, c(stopwords('english'), customstopwords))
 
 # Grouping by party
-dfm_all_gp <- dfm_group(dfm_all, groups = "snsname")
-topfeatures(dfm_all_gp, 30, groups = "snsname")
+dfm_all_gp <- dfm_group(dfm_all, groups = snsname)
+topfeatures(dfm_all_gp, 30, groups = snsname)
 
 # Subsetting by docvars
 corpus_con <- corpus_subset(corpus_all, snsname == "Scottish Conservatives")
-kwic(corpus_con, "indyref2", 3)
+tokens_con <- tokens(corpus_con)
+kwic(tokens_con, "indyref2", 3)
 
 
 png("wordcloud.png", 1000, 1000)
@@ -101,7 +108,7 @@ textplot_wordcloud(dfm_all_gp, max_size = 1.5, comparison = TRUE, labelsize = 2,
 dev.off()
 
 # Calculating TFIDF by group
-topterm_gp <- dfm_all_gp %>% dfm_tfidf() %>% textstat_frequency(groups = "snsname", force = TRUE)
+topterm_gp <- dfm_all_gp %>% dfm_tfidf() %>% textstat_frequency(groups = snsname, force = TRUE)
 topterm_gp %>% group_by(group) %>%  slice_max(frequency, n = 20) %>% 
   ggplot(aes(reorder(feature, frequency), frequency)) +
   geom_col() +
@@ -115,7 +122,7 @@ topterm_gp %>% group_by(group) %>%  slice_max(frequency, n = 20) %>%
 data_dictionary_LSD2015
 
 # Passing the dictionary to the dictionary function, you can also define your own dictionary
-sentiment <- dfm(corpus_all, dictionary = data_dictionary_LSD2015) 
+sentiment <- tokens_lookup(tokens_all, data_dictionary_LSD2015) %>% dfm()
 sentiment <- convert(sentiment, to = "data.frame")
 sentiment["sentiment"] <- sentiment$positive + sentiment$neg_negative - sentiment$negative - sentiment$neg_positive
 
@@ -126,7 +133,6 @@ df_wsentiment <- cbind(df_all, sentiment)
 df_wsentiment %>% group_by(snsname) %>% summarise(sentiment = mean(sentiment))
 
 # Sentiment trend over time
-as.Date(df_wsentiment$datetime)
 df_wsentiment$date <- as.Date(df_wsentiment$datetime)
 
 plot_df <- df_wsentiment %>% group_by(snsname, date) %>% 
