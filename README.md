@@ -1,12 +1,24 @@
 # CDCS-Summer-School
 
 Welcome to the **CDCS Data and Text analysis Summer School Repo**.
-Here you will be able to access all the material and data connected to the school
+Here you will be able to access all the material, data, and instructions connected to the school.
+
+## Content of the Repository
 Each block has its own folder and within each folder you can find a read me file, a data file/folder, and the code that will be used during the class.
-In the read me file you will also find instructions on packages you may need to have installed before the start of the block. If you never install a package before do not worry we are going to cover how to do it during the first day (Data Wrangling).
+
+In the **Readme** file you will also find instructions on **packages** you may need to have installed before the start of the block. 
+If you never install a package before do not worry we are going to cover how to do it during the first day (Data Wrangling).
+
 To facilitate the download of the material we also created ***Zipped File*** folder where you can find the blocks folders already zipped and ready to be downloaded.
 Please **before** the module/s you are signed up for take place, download, unzip, and read the readme file of the block. 
 
+If you do not have R and/or Python already installed in your machine check the **Installation Instructions** file.
+Here you can find detailed instructions on how to install both programme. 
+Please make sure to have the software needed install before the start of the Summer School.
+PLease note that we are not going to cover the installation during the classes.
+If you have any issue with the software installation email us at cdcs@ed.ac.uk.
+Additionally, we are offering an installation troubleshoot meeting on **Friday 04th of June**. 
+You shall have got the details on how to join this meeting in the prep email. 
 
 ## Summer School Time Table
 
