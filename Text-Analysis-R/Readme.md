@@ -17,6 +17,8 @@ In this workshop, we will cover the basic assumptions behind computational text 
 In this workshop, we are going to use the following packages, please run the following codes in your R console if you have not installed before:
 ```
 install.packages("quanteda")
+install.packages("quanteda.textplots")
+install.packages("quanteda.textstats")
 install.packages("dplyr")
 install.packages("wordcloud")
 install.packages("ggplot2")
