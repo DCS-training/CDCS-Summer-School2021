@@ -2,6 +2,17 @@
 
 In this workshop, we will cover the basic assumptions behind computational text analysis, the pre-processing steps needed prior to the analysis, and various analytical techniques. We will also offer a brief overview of widely used methods in computational text analysis. If time allows, we will also cover sentiment analysis, a useful technique to identify the polarity of text documents.
 
+## Topics
+* Pre-processing
+    * Removal of punctuation
+    * Tokenization 
+    * Stop-words 
+* Text visualization and analysis
+    * Word clouds, Word frequency
+    * Word clouds, TF-IDF
+* Sentiment analysis (if time allows)
+
+
 ## Installation
 In this workshop, we are going to use the following packages, please run the following codes in your R console if you have not installed before:
 ```
