@@ -4,13 +4,14 @@ In this workshop, we will cover the basics of data wrangling. We will begin by u
 ## Topics
 * Understanding what "data" and data "wrangling" are
 * Importing libraries, reading files, and pandas dataframes
+* Writing python: assignments, variables, properties, and methods
 * On "types": python types and pandas types
 * Exploring the data: basic information
 * Working with missing data: errors, omissions, variations
-* Data Standardisation: the right units
-* Data Normalisation: comparing apples with apples
+* Data types: the right type for the job
+* Comparing data: finding a standard
 * Data Binning: grouping to get a feel of the data
-* Indicator variables: from categories to numbers
+* Dummy variables: from categories to numbers
 
 
 ## Installation
