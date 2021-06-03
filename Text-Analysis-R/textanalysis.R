@@ -25,7 +25,7 @@ library(dplyr)
 # =================================== Basic Text Analysis =======================================
 
 # Loading the documents
-df_snp <-  read.csv("snp.csv", stringsAsFactors = FALSE)
+df_snp <-  read.csv("data/snp.csv", stringsAsFactors = FALSE)
 corpus_snp <- corpus(df_snp, text_field = "text")
 
 # The followings are not necessary steps, but it is always a good idea to view a portion of your data
@@ -84,12 +84,27 @@ dfm_snp_tfidf <- dfm_tfidf(dfm_snp)
 topfeatures(dfm_snp_tfidf, 30)
 textplot_wordcloud(dfm_snp_tfidf)
 
+############## Exercise ##############
+# In the "data" folder, you will find another csv containing all posts
+# from Scottish Conservative (scotcon.csv).
+# Let's plot a wordcloud and see if it looks different.
+######################################
+
+
+# Insert your codes here
+
+
+
 # =================================== Comparison Across Groups =======================================
 
 # Loading the documents
-df_all <-  read.csv("scotelection2021.csv", stringsAsFactors = FALSE)
+df_all <-  read.csv("data/scotelection2021.csv", stringsAsFactors = FALSE)
 corpus_all <- corpus(df_all, text_field = "text")
-tokens_all <- tokens(corpus_all, remove_punct = TRUE, remove_numbers = TRUE, verbose = TRUE, remove_url = TRUE)
+tokens_all <- tokens(corpus_all, 
+                     remove_punct = TRUE, 
+                     remove_numbers = TRUE, 
+                     verbose = TRUE, 
+                     remove_url = TRUE)
 dfm_all <- dfm(tokens_all)
 dfm_all <- dfm_remove(dfm_all, c(stopwords('english'), customstopwords))
 
@@ -108,8 +123,12 @@ textplot_wordcloud(dfm_all_gp, max_size = 1.5, comparison = TRUE, labelsize = 2,
 dev.off()
 
 # Calculating TFIDF by group
-topterm_gp <- dfm_all_gp %>% dfm_tfidf() %>% textstat_frequency(groups = snsname, force = TRUE)
-topterm_gp %>% group_by(group) %>%  slice_max(frequency, n = 20) %>% 
+topterm_gp <- dfm_all_gp %>% 
+  dfm_tfidf() %>% 
+  textstat_frequency(groups = snsname, force = TRUE)
+topterm_gp %>% 
+  group_by(group) %>%  
+  slice_max(frequency, n = 20) %>% 
   ggplot(aes(reorder(feature, frequency), frequency)) +
   geom_col() +
   coord_flip() +
@@ -122,7 +141,8 @@ topterm_gp %>% group_by(group) %>%  slice_max(frequency, n = 20) %>%
 data_dictionary_LSD2015
 
 # Passing the dictionary to the dictionary function, you can also define your own dictionary
-sentiment <- tokens_lookup(tokens_all, data_dictionary_LSD2015) %>% dfm()
+sentiment <- tokens_lookup(tokens_all, data_dictionary_LSD2015) %>% 
+  dfm()
 sentiment <- convert(sentiment, to = "data.frame")
 sentiment["sentiment"] <- sentiment$positive + sentiment$neg_negative - sentiment$negative - sentiment$neg_positive
 
@@ -130,12 +150,15 @@ sentiment["sentiment"] <- sentiment$positive + sentiment$neg_negative - sentimen
 df_wsentiment <- cbind(df_all, sentiment)
 
 # Basic Exploration: mean sentiment score
-df_wsentiment %>% group_by(snsname) %>% summarise(sentiment = mean(sentiment))
+df_wsentiment %>% 
+  group_by(snsname) %>% 
+  summarise(sentiment = mean(sentiment))
 
 # Sentiment trend over time
 df_wsentiment$date <- as.Date(df_wsentiment$datetime)
 
-plot_df <- df_wsentiment %>% group_by(snsname, date) %>% 
+plot_df <- df_wsentiment %>% 
+  group_by(snsname, date) %>% 
   summarise(sentiment = mean(sentiment))
 ggplot(plot_df, aes(date, sentiment, color = snsname)) +
   geom_line()
@@ -144,7 +167,8 @@ ggplot(plot_df, aes(date, sentiment, color = snsname)) +
 install.packages("lubridate")
 library(lubridate)
 
-plot_df <- df_wsentiment %>% mutate(date = floor_date(date, "week")) %>% 
+plot_df <- df_wsentiment %>% 
+  mutate(date = floor_date(date, "week")) %>% 
   group_by(snsname, date) %>% 
   summarise(sentiment = mean(sentiment))
 ggplot(plot_df, aes(date, sentiment, color = snsname)) +
