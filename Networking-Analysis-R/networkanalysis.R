@@ -42,10 +42,10 @@ friend_matrix <-matrix(c(0,1,1,0,1,0,
                          1,0,0,0,0,0,
                          0,0,1,0,0,0),
                        nrow = 6, ncol = 6, byrow = TRUE)
-rownames(friendship_matrix) <-c("Thomas","Arthur","John","Polly","Grace","Esme")
-colnames(friendship_matrix) <-c("Thomas","Arthur","John","Polly","Grace","Esme")
+rownames(friend_matrix) <-c("Thomas","Arthur","John","Polly","Grace","Esme")
+colnames(friend_matrix) <-c("Thomas","Arthur","John","Polly","Grace","Esme")
 
-g <- graph_from_adjacency_matrix(friendship_matrix, mode = "undirected")
+g <- graph_from_adjacency_matrix(friend_matrix, mode = "undirected")
 
 # You can call the object to see some basic information
 g
@@ -101,7 +101,8 @@ plot(g)
 # main                  If set, adds a title to the plot
 # sub                   If set, adds a subtitle to the plot
 # Source: https://kateto.net/networks-r-igraph
-plot(g, layout = layout_with_fr, edge.arrow.size=.5, vertex.color="orange", vertex.size=15, 
+plot(g, layout = layout_with_fr, edge.arrow.size=.5, 
+     vertex.color="orange", vertex.size=15, 
      vertex.frame.color="white", vertex.label.color="black", 
      vertex.label.cex=0.8, edge.curved=0.2) 
 
@@ -164,7 +165,7 @@ plot(g, vertex.size=page_rank$vector*100)
 # The edges represent co-directorates (ie. if they are shareholders of the same company)
 
 # Reading the data
-scotland_edgelist <- read.csv("scotland_edgelist.csv")
+scotland_edgelist <- read.csv("data/scotland_edgelist.csv")
 g <- graph_from_data_frame(scotland_edgelist, directed = F)
 
 # Vertex count
@@ -265,6 +266,7 @@ ggplot(g, layout = with_fr(), aes(x = x, y = y, xend = xend, yend = yend)) +
   geom_nodes(aes(size = degree), alpha = 0.8, color = "skyblue") +
   theme_blank()
 
+# Adding label, but only for certain vertices
 ggplot(g, layout = with_fr(), aes(x = x, y = y, xend = xend, yend = yend)) +
   geom_edges(color = "grey50", alpha = 0.5, curvature = 0.2) +
   geom_nodes(aes(size = degree, color = ifelse(betweenness > 500, "broker", "other")), alpha = 0.8) +
@@ -278,17 +280,44 @@ ggplot(g, layout = with_fr(), aes(x = x, y = y, xend = xend, yend = yend)) +
   geom_nodelabel_repel(aes(label = ifelse(betweenness > 500, name, NA)), alpha = 0.8) +
   theme_blank()
 
-# visIgraph(g) %>% 
-#   visOptions(highlightNearest = list(enabled = TRUE,
-#                                      hover = TRUE),
-#              nodesIdSelection = list(enabled = TRUE))
+# Or, go fancy again?
+visIgraph(g) %>%
+  visOptions(highlightNearest = list(enabled = TRUE,
+                                     hover = TRUE),
+             nodesIdSelection = list(enabled = TRUE))
+
+# See https://datastorm-open.github.io/visNetwork/ for documentation
 
 # =================================== Community Detection =======================================
 
 # A community is a group of vertices that are tightly connected within the group
 # and loosely connected with vertices outside the group.
 
-# On popular method for detecting community is call the Louvain algorithm.
+# Let's look at this example:
+demo <- rbind(c("A","B"),
+              c("A","C"),
+              c("B","C"),
+              c("D","E"),
+              c("D","F"),
+              c("E","F"),
+              c("A","D"))
+demo_graph <- graph_from_edgelist(demo, directed = FALSE)
+plot(demo_graph)
+
+# Modularity: the number of edges falling within groups minus 
+# the expected number in an equivalent network with edges placed at random.
+# Modularity ranges from ‐1 to 1. 
+# Positive number means edges inside the group are more than expected.
+
+# Let's compare our demo to a random graph
+random_graph <- erdos.renyi.game(n = vcount(demo_graph), 
+                                 p.or.m = edge_density(demo_graph), 
+                                 type = "gnp")
+plot(random_graph)
+
+cluster_louvain(demo_graph)
+
+# One popular method for detecting community is call the Louvain algorithm.
 communities_louvain <- cluster_louvain(g)
 communities_louvain
 
@@ -321,5 +350,3 @@ ggplot(g, layout = with_fr(), aes(x = x, y = y, xend = xend, yend = yend)) +
   geom_edges(color = "grey50", alpha = 0.5,  curvature = 0.2) +
   geom_nodes(aes(size = betweenness, color = factor(membership)), alpha = 0.8) +
   theme_blank()
-
-plot_dendrogram(communities_walktrap)
