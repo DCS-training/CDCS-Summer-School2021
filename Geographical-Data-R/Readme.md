@@ -27,7 +27,7 @@ install.packages("latticeExtra")
 ```
 
 ## Course Materials
-In this repositary, you will find a  script (`Geographic_Data.R`) and 2 folders Data and Output. The Data Folder contains all the data we are going to use and the Output folder will be used to save the graph we are going to create. For your convenience, you can also download from the following link: . The contents are identical.
+In this repositary, you will find a  script (`Geographic_Data.R`) and 2 folders Data and Output. The Data Folder contains all the data we are going to use and the Output folder will be used to save the graph we are going to create. For your convenience, you can also download from the following link: https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
 
 Please make sure to download and unzip the folder in an easily accessible place in your machine.
 
