@@ -22,7 +22,7 @@ install.packages("tidyverse")
 ```
 
 ## Course Materials
-In this repositary, you will find a  script (`name script`) and a csv file (`name dataset`). For your convenience, you can also download from the following link: . The contents are identical.
+In this repositary, you will find a  script (`Data_visualisation`) and 2 folders, a **Data** folder with the datasets used, and a **Output** folder that will be used to save the output of the workshop. For your convenience, you can also download from the following link:https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
 
 ## Autorship
 This Block has been created and developped by Andrew McLean
