@@ -61,6 +61,24 @@ pip install wordcloud
 
 ```codes.ipynb``` has all the codes mentioned in the lecture but contains no outputs, please use this jupyter notebook file to run codes during the course.
 
+Please find the dataset saved in the **data** folder, and related readings in the **reading** folder
+
+## Useful resources
+
+- Books:
+    
+    - Bengfort, B., Bilbro, R., & Ojeda, T. (2018). Applied text analysis with Python : Enabling language-aware data products with machine learning. Beijing: O'Reilly
+    
+    - Vanderplas, J. (2017). Python data science handbook : Essential tools for working with data. Beijing: O'Reilly
+    
+- Online resources:
+    
+    - A list of NLP courses around the world, curated by ACL (the Association for Computational Linguistics): https://aclweb.org/aclwiki/List_of_NLP/CL_courses 
+    
+    - An introduction to Natural Language Processing (NLP): https://port.sas.ac.uk/mod/book/view.php?id=583&chapterid=445 
+    
+    - Introduction to NLP & Data Science: https://www.youtube.com/watch?v=5BVebXXb2o4
+
 ## Autorship
 
 This Block has been created and developped by Pu Yan, for Data and Text Analysis Summer School 
