@@ -61,7 +61,7 @@ pip install wordcloud
 
 ```codes.ipynb``` has all the codes mentioned in the lecture but contains no outputs, please use this jupyter notebook file to run codes during the course.
 
-Please find the dataset saved in the "data" folder, and related readings in the "reading" folder
+Please find the dataset saved in the **data** folder, and related readings in the **reading** folder
 
 ## Useful resources
 
