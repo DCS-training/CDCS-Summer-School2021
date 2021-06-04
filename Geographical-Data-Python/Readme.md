@@ -20,7 +20,7 @@ In this workshop, we are going to use the following packages, please run the fol
 ```
 
 ## Course Materials
-In this repositary, you will find a  script (``) and a csv file (``). For your convenience, you can also download from the following link: . The contents are identical.
+In this repositary, you will find a  script (``) and a csv file (``). For your convenience, you can also download from the following link: https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
 
 
 
