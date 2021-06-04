@@ -15,14 +15,11 @@ In this workshop, we will cover the basics of data wrangling. We will begin by u
 
 
 ## Installation
-In this workshop, we are going to use the following packages, please run the following codes in your ... console if you have not installed before:
-
-```
-```
+In this workshop, we are going to use the libraries of Matplotlib, pandas, and numpy. Make sure you have followed the instructions for downloading Anaconda — it includes these libraries so you don't have to download anything extra.
 
 ## Course Materials
-In this repository, you will find a  script (``) and a csv file (``). For your convenience, you can also download from the following link: . The contents are identical.
+In this repository, you will find a jupyter notebook file (````dw.ipynb````) and various csv files. Please have them all **in the same folder**, otherwise the file paths might not work.
 
 
 ## Autorship
-This Block has been created and developped by Esgrid Esteban Sikahall Urizar 
+This Block has been created and developped by Esgrid Esteban Sikahall Urízar 
