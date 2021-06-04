@@ -16,7 +16,7 @@ In this workshop, we will cover some of the basic ways of visualising data in Py
 Everything we need you should have already installed by having installed the Anaconda package.
 
 ## Course Materials
-In this repository, you will find a jupyter notebook (````dv.ipynb ````) and an excel file (````CBP06077-data.xlsx ````). For your convenience, you can also download from the following link: https://commonslibrary.parliament.uk/research-briefings/sn06077/ (it's the "supporting documents" on the right hand side). The contents are identical.
+In this repository, you will find a jupyter notebook (````dv.ipynb ````) and an excel file (````CBP06077-data.xlsx ````). For your convenience, you can also download from the following link:https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
 
 
 ## Autorship
