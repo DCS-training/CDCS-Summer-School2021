@@ -24,7 +24,7 @@ install.packages("tidyverse")
 ```
 
 ## Course Materials
-In this repositary, you will find a  script (``) and a csv file (``). For your convenience, you can also download from the following link: . The contents are identical.
+In this repositary, you will find a  script (`Data_visualisation.R`) and 2 folders one with the dataset we are going to use (**Data**) and one that we are going to use for saving the outputs (**Output**). For your convenience, you can also download from the following link: . The contents are identical.
 
 ## Autorship
 This Block has been created and developped by Andrew McLean 
