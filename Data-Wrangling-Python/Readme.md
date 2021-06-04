@@ -18,7 +18,7 @@ In this workshop, we will cover the basics of data wrangling. We will begin by u
 In this workshop, we are going to use the libraries of Matplotlib, pandas, and numpy. Make sure you have followed the instructions for downloading Anaconda — it includes these libraries so you don't have to download anything extra.
 
 ## Course Materials
-In this repository, you will find a jupyter notebook file (````dw.ipynb````) and various csv files. Please have them all **in the same folder**, otherwise the file paths might not work.
+In this repository, you will find a jupyter notebook file (````dw.ipynb````) and various csv files. Please have them all **in the same folder**, otherwise the file paths might not work. We will learn to access them even if they are in a folder within our working directory.
 
 
 ## Autorship
