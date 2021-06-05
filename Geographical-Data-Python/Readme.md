@@ -14,9 +14,19 @@ This block will provide a solid base for understanding Geographical Data Analysi
 * Exporting plots 
 
 ## Installation
-In this workshop, we are going to use the following packages, please run the following codes in your ... console if you have not installed before:
+In this workshop, we are going to use the following packages, please run the following codes in your console if you have not installed before:
 
 ```
+%pip install geopandas
+%pip install matplotlib.pyplot
+%pip install numpy
+%pip install shapely.geometry
+
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+from shapely.geometry import Point, Polygon
 ```
 
 ## Course Materials
