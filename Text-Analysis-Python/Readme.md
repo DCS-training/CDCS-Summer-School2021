@@ -63,6 +63,8 @@ pip install wordcloud
 
 Please find the dataset saved in the **data** folder, and related readings in the **reading** folder
 
+For your convenience, you can also download from the following link: https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
+
 ## Useful resources
 
 - Books:

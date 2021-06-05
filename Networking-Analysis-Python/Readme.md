@@ -22,13 +22,14 @@ In this workshop, we are going to use the following packages, please run the fol
 ```
 
 ## Course Materials
-In this repositary, you will find a  script (``) and a csv file (``). For your convenience, you can also download from the following link: https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
 
 Please use ```slides.ipynb``` to see the lecture content, as well as outputs from sample codes
 
 Please use ```codes.ipynb``` to run codes in your local environment
 
 Use ```slides.html``` to see the slides for the lecture 
+
+ For your convenience, you can also download from the following link: https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
 
 ## Useful resources
 - Books:
