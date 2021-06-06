@@ -51,6 +51,12 @@ pip install --upgrade gensim
 python -m spacy download en_core_web_sm
 pip install pillow
 pip install wordcloud
+
+## Run the following code if you see warning message when importing gensim
+pip install python-Levenshtein
+
+## Run the foolowing code if you can't pip install wordcloud, you will need to have conda installed in the environment
+conda install -c conda-forge wordcloud
 ```
 
 ## Course Materials
