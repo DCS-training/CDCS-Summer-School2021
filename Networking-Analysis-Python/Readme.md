@@ -77,7 +77,8 @@ Use ```slides.html``` to see the slides for the lecture
     - a. click the "files" icon on the left column of your screen 
     - b. create an empty folder called "data" 
     - c. import the csv data file from the data folder downloaded from the current GitHub repo
-    - d. make sure the data fiel is under the "data" folder on Google Colab
+    - d. make sure the data file is under the "data" folder on Google Colab
+    - e. create a folder called "result" for saving all the visualisation outputs
 
 - Now, you are ready to run all the code cells on Google Colab!
     
