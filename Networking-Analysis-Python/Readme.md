@@ -1,4 +1,4 @@
-# Networking Analysis with Python 
+# Social Network Analysis with Python 
 In this workshop, we will cover key concepts in social network analysis, and will introduce basic steps for constructing, visualising, and analysing social networks
 
 ## Topics
