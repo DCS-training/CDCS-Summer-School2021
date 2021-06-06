@@ -97,7 +97,7 @@ Please find the dataset saved in the **data** folder, and related readings in th
     - a. click the "files" icon on the left column of your screen 
     - b. create an empty folder called "data" 
     - c. import the csv data file from the data folder downloaded from the current GitHub repo
-    - d. make sure the data fiel is under the "data" folder on Google Colab
+    - d. make sure the data file is under the "data" folder on Google Colab
     - e. repeat the b-c-d steps to create a folder called "image" and upload 'snp.png' file from the image folder downloaded from the current repo. Make sure the image is saved under the 'image' folder
 
 - Now, you are ready to run all the code cells on Google Colab!
