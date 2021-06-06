@@ -14,13 +14,23 @@ This block will provide a solid base for understanding Geographical Data Analysi
 * Exporting plots 
 
 ## Installation
-In this workshop, we are going to use the following packages, please run the following codes in your ... console if you have not installed before:
+In this workshop, we are going to use the following packages, please run the following codes in your console if you have not installed before:
 
 ```
+%pip install geopandas
+%pip install matplotlib.pyplot
+%pip install numpy
+%pip install shapely.geometry
+
+import geopandas as gpd
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+from shapely.geometry import Point, Polygon
 ```
 
 ## Course Materials
-In this repositary, you will find a  script (``) and a csv file (``). For your convenience, you can also download from the following link: https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
+In this repositary, you will find a  script (`Geographic_Data.ipynb`) and 2 folders one containing the **Data** and one for the **Output**. For your convenience, you can also download from the following link: https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
 
 
 
