@@ -1,6 +1,6 @@
 # Text Analysis with Python 
 
-In this workshop, we will cover text cleaning, visualisation, and preliminary analysis using Python. 
+In this workshop, we will cover text data wrangling, text cleaning, visualisation, and preliminary analysis using Python. 
 
 ## Topics
 
