@@ -85,15 +85,6 @@ Please find the dataset saved in the **data** folder, and related readings in th
     
     - Introduction to NLP & Data Science: https://www.youtube.com/watch?v=5BVebXXb2o4
 
-## Autorship
-
-This Block has been created and developped by Pu Yan, for Data and Text Analysis Summer School 
-
-Pu Yan, Oxford Internet Institute, University of Oxford 
-
-Email: <pu.yan@oii.ox.ac.uk> or <thuyanpu@gmail.com>
-
-
 ## If you can't install any of the above-mentioned packages in your local environment, you can use ```google colab```
 
 - Step 1: open Google Colab: https://colab.research.google.com/notebooks/
@@ -110,3 +101,13 @@ Email: <pu.yan@oii.ox.ac.uk> or <thuyanpu@gmail.com>
     - e. repeat the b-c-d steps to create a folder called "image" and upload 'snp.png' file from the image folder downloaded from the current repo. Make sure the image is saved under the 'image' folder
 
 - Now, you are ready to run all the code cells on Google Colab!
+
+
+## Autorship
+
+This Block has been created and developped by Pu Yan, for Data and Text Analysis Summer School 
+
+Pu Yan, Oxford Internet Institute, University of Oxford 
+
+Email: <pu.yan@oii.ox.ac.uk> or <thuyanpu@gmail.com>
+

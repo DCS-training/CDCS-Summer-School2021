@@ -4,10 +4,22 @@ In this workshop, we will cover key concepts in social network analysis, and wil
 ## Topics
 
 0. Introduction
+
+    0.1 Defining networks
+    
+    0.2 Social network examples
     
 1. Understanding networks: Key network concepts 
 
 2. Nework 101: Data management
+    
+    2.1 Tookit for SNA in Python
+    
+    2.2 Basic network generation in NetworkX
+    
+    2.3 Importing real-world SNA datase
+    
+    2.4 Importing large-scale social network data
 
 3. Visualising networks
 
@@ -16,9 +28,13 @@ In this workshop, we will cover key concepts in social network analysis, and wil
 5. Identifying subgroups: Community detection 
 
 ## Installation
-In this workshop, we are going to use the following packages, please run the following codes in your ... console if you have not installed before:
+In this workshop, we are going to use the following packages, please run the following codes (run each line per time) in your terminal if you have not installed the module before:
 
 ```
+pip install pandas
+pip install networkx
+pip install matplotlib
+pip install pyvis
 ```
 
 ## Course Materials
@@ -30,6 +46,7 @@ Please use ```codes.ipynb``` to run codes in your local environment
 Use ```slides.html``` to see the slides for the lecture 
 
  For your convenience, you can also download from the following link: https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files. The contents are identical.
+
 
 ## Useful resources
 - Books:
@@ -46,6 +63,23 @@ Use ```slides.html``` to see the slides for the lecture
     - Exploring and Analyzing Network Data with Python: https://programminghistorian.org/en/lessons/exploring-and-analyzing-network-data-with-python
     
     - Introduction to Social Network Analysis using Gephi: https://towardsdatascience.com/how-to-get-started-with-social-network-analysis-6d527685d374 
+
+
+## If you can't install any of the above-mentioned packages in your local environment, you can use ```google colab```
+
+- Step 1: open Google Colab: https://colab.research.google.com/notebooks/
+
+- Step 2: searching "DCS-training/CDCS-Summer-School" under the "GitHub" tab
+
+- Step 3: select "Networking-Analysis-Python/codes.ipynb" to open in Google Colab
+
+- Step 4: importing the data and image folder 
+    - a. click the "files" icon on the left column of your screen 
+    - b. create an empty folder called "data" 
+    - c. import the csv data file from the data folder downloaded from the current GitHub repo
+    - d. make sure the data fiel is under the "data" folder on Google Colab
+
+- Now, you are ready to run all the code cells on Google Colab!
     
 
 ## Autorship
