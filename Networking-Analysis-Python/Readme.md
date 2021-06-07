@@ -22,10 +22,29 @@ In this workshop, we will cover key concepts in social network analysis, and wil
     2.4 Importing large-scale social network data
 
 3. Visualising networks
+    
+    3.1 Option 1: the NetworkX method
+    
+    3.2 Option 2: ploting interactive networks using pyvis
 
 4. Measuring networks: Centrality
 
+    4.1 Degree centrality
+    
+    4.2 Betweenness centrality 
+    
+    4.3 Eigenvector centrality
+
+
 5. Identifying subgroups: Community detection 
+
+    5.1 Connected components
+    
+    5.2 Modularity
+    
+    5.3 Cliques
+   
+6. Conclusion
 
 ## Installation
 In this workshop, we are going to use the following packages, please run the following codes (run each line per time) in your terminal if you have not installed the module before:
