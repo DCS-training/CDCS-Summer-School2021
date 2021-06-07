@@ -19,7 +19,7 @@
 11/6
 # The output of the calculations should appear in the Console below
 
-## ==== Creating sequences ====
+## ==== Creating sequences With Functions ====
 1:250 #Print numbers between 1 and 250 across several lines
 #To Clear the console press ctrl+l
 100:1 #Print numbers from 100 to 1
@@ -115,13 +115,13 @@ m2
 m3 <- matrix(c(1, "b", 
                "c", "d"), 
              nrow = 2,
-             byrow = T)
+             byrow = F)
 m3
 
 # ==== Array ====
 # Multidimentional collection of data 
 # Give data, then dimensions (rows, columns, tables)
-a1 <- array(c( 1:24), c(4, 3, 2))
+a1 <- array(c(1:24), c(4, 3, 2))
 a1
 
 # ==== Data Frame ====
@@ -132,10 +132,10 @@ Numeric   <- c(1, 2, 3)
 Character <- c("a", "b", "c")
 Logical   <- c(T, F, T)
 
-df1 <- cbind(vNumeric, vCharacter, vLogical)
+df1 <- cbind(Numeric, Character, Logical)
 df1  # Coerces all values to most basic data type
 
-df2 <- as.data.frame(cbind(vNumeric, vCharacter, vLogical))
+df2 <- as.data.frame(cbind(Numeric, Character, Logical))
 df2  # Makes a data frame with three different data types
 
 # Clear Workspace
@@ -159,6 +159,7 @@ head(iris)
 UCBAdmissions
 
 # viewing dataframes as tables
+
 tibble(iris)
 
 iris_table <- tibble(iris)
@@ -167,7 +168,7 @@ iris_table
 # #### PART 3: IMPORTING AND MANIPULATING DATA ####
 
 # In order to work with your own data, you will need to import it into R
-
+library(tidyverse)
 read_csv("Data/Election_Results_Basic.csv") # The read_csv() function in 'tidyverse' is the easiest way to do this
 
 Elec <- read_csv("Data/Election_Results_Basic.csv") # Rather than just seeing a single output, you can assign the data to a variable
@@ -201,6 +202,7 @@ is.factor(Elec$result)
 
 Data$first_party <- colnames(Data[,8:20])[max.col(Data[,8:20], ties.method = "first")]
 
+
 # Or to calulate voter turnout as a percentage, we can compare total votes cast against the electorate
 
 Data$turnout <- ((Data$valid_votes+Data$invalid_votes)/Data$electorate)*100
@@ -208,7 +210,7 @@ Data$turnout <- ((Data$valid_votes+Data$invalid_votes)/Data$electorate)*100
 # Now we can combine these new data with our original Election Results dataframe using merge
 
 Elec <- Elec %>% mutate(constituency_name = toupper(constituency_name)) # The shared columns are case sensitive
-Merged_elec <- merge(Elec[,c(1,3)], Data[,c(1,3,21,22)], by.x="constituency_name", by.y="const")
+Merged_elec <- merge(Elec[,c(1,3)], Data[,c(1,3,22,23)], by.x="constituency_name", by.y="const")
 
 # We can rearange the order of the columns to keep it tidier
 
@@ -220,9 +222,18 @@ Merged_elec %>% arrange(turnout) # Using arranged in dplyr (part of tidyverse pa
 Merged_elec %>% arrange(desc(turnout)) # Or from highest to lowest (arrange(Merged_elec, -turnout)) will produce the same result
 
 # Create a new variable and extract the mean turnout for each country in the UK
-Elec_turnout <- Merged_elec[,c(1,2,4)] %>%
+Elec_Turnout_country <- Merged_elec[,c(1,2,4)] %>%
   arrange(desc(turnout)) # Create a new variable
-Elec_turnout[,2:3] %>% group_by(country) %>% summarise_each(funs(mean)) %>% arrange(desc(turnout))
+
+Elec_Turnout_country <- Elec_turnout[,2:3] %>% 
+  group_by(country) %>%
+  summarize_each(funs(mean)) %>%
+  arrange(desc(turnout))
+
+Breakout<-  Data  %>% 
+  group_by(country, region) %>% 
+  summarize(Number = n(), mean= round(mean(valid_votes),2))%>%
+  arrange(country, desc(mean))
 
 
 #### END ####
