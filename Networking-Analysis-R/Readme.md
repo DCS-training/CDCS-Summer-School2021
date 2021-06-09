@@ -21,7 +21,7 @@ install.pacakges("tidyverse")
 ```
 
 ## Course Materials
-In this repositary, you will find a R script (`networkanalysis.R`) and a csv file (`scotland_edgelist.csv`). For your convenience, you can also download from the following link: [https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files] . The contents are identical.
+In this repositary, you will find a R script (`networkanalysis.R`) and a csv file (`scotland_edgelist.csv`). For your convenience, you can also download from the following link: [https://github.com/DCS-training/CDCS-Summer-School/tree/main/Zipped-Files] . The contents are identical. Slides are available at: https://justinchuntingho.github.io/beacon-slides/
 
 ## Autorship
 This Block has been created and developped by Justin Chun-ting Ho. 
