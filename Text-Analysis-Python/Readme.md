@@ -102,6 +102,54 @@ Please find the dataset saved in the **data** folder, and related readings in th
 
 - Now, you are ready to run all the code cells on Google Colab!
 
+## After course notes:
+
+- We now added a function in lemmatisation to remove derivative words of nouns, for example, returning "minutes" to "minutes"
+
+```
+# Python NLTK provides WordNet Lemmatizer that uses the WordNet Database to lookup lemmas of words.
+import nltk
+from nltk.stem import WordNetLemmatizer
+wordnet_lemmatizer = WordNetLemmatizer()
+
+# We define a function to lookup lemmas of each word in the post, applying on verbs
+def lemmatise_v(texts):
+    return [[wordnet_lemmatizer.lemmatize(word, pos="v") for word in doc] for doc in texts]
+
+# We define a function to lookup lemmas of each word in the post, applying on nouns
+def lemmatise_n(texts):
+    return [[wordnet_lemmatizer.lemmatize(word, pos="n") for word in doc] for doc in texts]
+
+data_lemmatise_v = lemmatise_v(data_words_nostopwords)
+data_lemmatise = lemmatise_n(data_lemmatise_v)
+```
+
+- We also added a cell under text analysis to let you export a csv file of results from different top-word measurements under the result folder
+
+```
+df_top_20_raw = pd.DataFrame(top_20_raw, columns=['word', 'top_20_raw'])
+df_top_20 = pd.DataFrame(top_20, columns=['word', 'top_20'])
+df_top_20 = df_top_20_raw.merge(df_top_20,on='word', how = 'outer').merge(tf_idf_20,on='word', how = 'outer')
+df_top_20.to_csv("result/top_20_different_measurements.csv")
+df_top_20
+```
+
+- For each of the visualisation, you can now save the plot in the result folder
+
+```
+import matplotlib.pyplot as plt
+# import wordcloud 
+from wordcloud import WordCloud, ImageColorGenerator
+## Creating a wordcloud using top ranked 100 words (measured by TD-IDF) for the SNP corpora
+fig, ax = plt.subplots(figsize=(10,10))
+wc = WordCloud(background_color = 'white',
+              width=800,height=600,
+              max_words=2000).fit_words(words_tfidf[:100])
+plt.imshow(wc)
+plt.axis("off")
+plt.savefig('result/snp_tf-idf.pdf')
+plt.show()
+```
 
 ## Autorship
 
