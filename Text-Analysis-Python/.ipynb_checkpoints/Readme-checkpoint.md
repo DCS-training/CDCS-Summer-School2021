@@ -1,6 +1,6 @@
 # Text Analysis with Python 
 
-In this workshop, we will cover text cleaning, visualisation, and preliminary analysis using Python. 
+In this workshop, we will cover text data wrangling, text cleaning, visualisation, and preliminary analysis using Python. 
 
 ## Topics
 
@@ -51,6 +51,12 @@ pip install --upgrade gensim
 python -m spacy download en_core_web_sm
 pip install pillow
 pip install wordcloud
+
+## Run the following code if you see warning message when importing gensim
+pip install python-Levenshtein
+
+## Run the foolowing code if you can't pip install wordcloud, you will need to have conda installed in the environment
+conda install -c conda-forge wordcloud
 ```
 
 ## Course Materials
@@ -79,15 +85,6 @@ Please find the dataset saved in the **data** folder, and related readings in th
     
     - Introduction to NLP & Data Science: https://www.youtube.com/watch?v=5BVebXXb2o4
 
-## Autorship
-
-This Block has been created and developped by Pu Yan, for Data and Text Analysis Summer School 
-
-Pu Yan, Oxford Internet Institute, University of Oxford 
-
-Email: <pu.yan@oii.ox.ac.uk> or <thuyanpu@gmail.com>
-
-
 ## If you can't install any of the above-mentioned packages in your local environment, you can use ```google colab```
 
 - Step 1: open Google Colab: https://colab.research.google.com/notebooks/
@@ -100,7 +97,65 @@ Email: <pu.yan@oii.ox.ac.uk> or <thuyanpu@gmail.com>
     - a. click the "files" icon on the left column of your screen 
     - b. create an empty folder called "data" 
     - c. import the csv data file from the data folder downloaded from the current GitHub repo
-    - d. make sure the data fiel is under the "data" folder on Google Colab
+    - d. make sure the data file is under the "data" folder on Google Colab
     - e. repeat the b-c-d steps to create a folder called "image" and upload 'snp.png' file from the image folder downloaded from the current repo. Make sure the image is saved under the 'image' folder
 
 - Now, you are ready to run all the code cells on Google Colab!
+
+## After course notes:
+
+- We now added a function in lemmatisation to remove derivative words of nouns, for example, returning "minutes" to "minutes"
+
+```
+# Python NLTK provides WordNet Lemmatizer that uses the WordNet Database to lookup lemmas of words.
+import nltk
+from nltk.stem import WordNetLemmatizer
+wordnet_lemmatizer = WordNetLemmatizer()
+
+# We define a function to lookup lemmas of each word in the post, applying on verbs
+def lemmatise_v(texts):
+    return [[wordnet_lemmatizer.lemmatize(word, pos="v") for word in doc] for doc in texts]
+
+# We define a function to lookup lemmas of each word in the post, applying on nouns
+def lemmatise_n(texts):
+    return [[wordnet_lemmatizer.lemmatize(word, pos="n") for word in doc] for doc in texts]
+
+data_lemmatise_v = lemmatise_v(data_words_nostopwords)
+data_lemmatise = lemmatise_n(data_lemmatise_v)
+```
+
+- We also added a cell under text analysis to let you export a csv file of results from different top-word measurements under the result folder
+
+```
+df_top_20_raw = pd.DataFrame(top_20_raw, columns=['word', 'top_20_raw'])
+df_top_20 = pd.DataFrame(top_20, columns=['word', 'top_20'])
+df_top_20 = df_top_20_raw.merge(df_top_20,on='word', how = 'outer').merge(tf_idf_20,on='word', how = 'outer')
+df_top_20.to_csv("result/top_20_different_measurements.csv")
+df_top_20
+```
+
+- For each of the visualisation, you can now save the plot in the result folder
+
+```
+import matplotlib.pyplot as plt
+# import wordcloud 
+from wordcloud import WordCloud, ImageColorGenerator
+## Creating a wordcloud using top ranked 100 words (measured by TD-IDF) for the SNP corpora
+fig, ax = plt.subplots(figsize=(10,10))
+wc = WordCloud(background_color = 'white',
+              width=800,height=600,
+              max_words=2000).fit_words(words_tfidf[:100])
+plt.imshow(wc)
+plt.axis("off")
+plt.savefig('result/snp_tf-idf.pdf')
+plt.show()
+```
+
+## Autorship
+
+This Block has been created and developped by Pu Yan, for Data and Text Analysis Summer School 
+
+Pu Yan, Oxford Internet Institute, University of Oxford 
+
+Email: <pu.yan@oii.ox.ac.uk> or <thuyanpu@gmail.com>
+
