@@ -100,6 +100,12 @@ Use ```slides.html``` to see the slides for the lecture
     - e. create a folder called "result" for saving all the visualisation outputs
 
 - Now, you are ready to run all the code cells on Google Colab!
+
+## If we have extra time left after covering the main topics in the lecture
+
+Extra learning tasks: using Gephi to visualise social network and generate basic network statistics:
+
+PLease download Gephi from their official website: https://gephi.org
     
 
 ## Autorship
