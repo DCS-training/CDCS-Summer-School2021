@@ -1,0 +1,22 @@
+# Links mentioned today 
+
+-	https://justinchuntingho.github.io/beacon-slides/
+-	https://en.wikipedia.org/wiki/Milgram_experiment
+-	the network one: https://en.wikipedia.org/wiki/Small-world_experiment
+-	https://en.wikipedia.org/wiki/Six_degrees_of_separation
+-	https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon
+-	https://www.linkgroup.hu/petercsermelyweak.php
+-	https://web.stanford.edu/class/cs54n/handouts/24-GooglePageRankAlgorithm.pdf
+-	https://stackoverflow.com/questions/14399594/can-we-vary-the-text-size-along-with-node-size-in-r-igraph#14400780
+-	https://faculty.math.illinois.edu/Macaulay2/doc/Macaulay2-1.15/share/doc/Macaulay2/Graphs/html/_density.html
+-	transitivity visual clues: https://mathworld.wolfram.com/images/eps-gif/Edge-TransitiveGraphsConnected_1000.gif
+-	https://www.pnas.org/content/112/35/10837
+-	https://datastorm-open.github.io/visNetwork/
+-	https://arxiv.org/abs/0803.0476
+-	https://igraph.org/r/doc/cluster_louvain.html
+-	https://sites.fas.harvard.edu/~airoldi/pub/books/BookDraft-CsardiNepuszAiroldi2016.pdf p144 (149) but this is with deep maths
+-	https://igraph.org/r/doc/
+-	https://gephi.org/
+-	https://www.youtube.com/watch?v=vkmB1bYwyH8 video on how to fix java error
+-	https://gephi.org/users/supported-graph-formats/graphml-format/
+-	https://www.amazon.com/Social-Network-Analysis-John-Scott/dp/1446209040
