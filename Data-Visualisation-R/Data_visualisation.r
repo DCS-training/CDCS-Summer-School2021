@@ -115,7 +115,7 @@ Party_hist_lab # Histograms are particularly useful for plotting distributions a
 ggplot(Elec_main, aes(x=majority)) + geom_density(aes(fill=first_party), alpha=0.5) # This is similar to a histogram, in that it can show peaks and troughs in the distribution, but with a density plot, the precise shape of each factors (in this case first_party) distribution can be more easily visualised
 
 # Import England Deprivation Index Data
-Eng <- read_csv("Data/England_results.csv")
+Eng <- read_csv("https://raw.githubusercontent.com/DCS-training/CDCS-Summer-School2021/main/Data-Visualisation-R/Data/England_results.csv")
 Eng_main <- Eng[(Eng$first_party=='Con'|Eng$first_party=='Lab'|Eng$first_party=='LD'),]
 
 # Boxplots
