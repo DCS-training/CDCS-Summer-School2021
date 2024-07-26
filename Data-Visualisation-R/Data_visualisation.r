@@ -9,7 +9,7 @@ library("viridis")
 # R does have base functionality for visualising data though ggplot2 is the standard package used
 # Lets import and tidy some data and visualise it with a basic ggplot plot
 
-Elec <- read_csv("Data/Election_Results.csv")
+Elec <- read_csv("https://raw.githubusercontent.com/DCS-training/CDCS-Summer-School2021/main/Data-Visualisation-R/Data/Election_Results.csv")
 Elec$first_party <- as_factor(Elec$first_party)
 Elec$first_party <- factor(Elec$first_party, levels= c('Con', 'Lab', 'SNP', 'LD', 'DUP', 'PC', 'Green', 'SF', 'SDLP', 'UUP', 'Ind', 'UKIP', 'Spk'))
 
